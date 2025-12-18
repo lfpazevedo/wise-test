@@ -53,8 +53,16 @@ Proper (Out-of-Sample):   [=== Train ===][Forecast t+1]
 - `notebooks/analysis.ipynb` … Jupyter notebook with narrative analysis
 
 ## Prerequisites
-- Python 3.13 (see `.python-version`)
-- uv package manager
+- **uv package manager** (Required): This project uses `uv` for dependency management and execution. Install it via:
+  ```bash
+  # On macOS/Linux
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  
+  # On Windows
+  powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+  ```
+  *(See [uv documentation](https://docs.astral.sh/uv/) for other installation methods)*
+- Python 3.13 (managed automatically by uv)
 
 ## Setup
 ```bash
@@ -67,19 +75,19 @@ uv pip install -e .
 
 ## Running the dashboard
 ```bash
-python web/app.py
+uv run python web/app.py
 ```
 The Dash server will start (by default at http://127.0.0.1:8050). Open in a browser to interact with the analysis steps, diagnostics, and executive summary.
 
 ## Running the CLI pipeline
 ```bash
-python -m src.main
+uv run python -m src.main
 ```
 Runs the ADL pipeline with rolling CV, Granger test, daily robustness check, seasonality analysis, and prints the executive summary to stdout.
 
 ## Running the Jupyter Notebook
 ```bash
-jupyter notebook notebooks/analysis.ipynb
+uv run jupyter notebook notebooks/analysis.ipynb
 ```
 Interactive narrative analysis with visualizations and step-by-step econometric testing.
 
