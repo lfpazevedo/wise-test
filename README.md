@@ -75,13 +75,13 @@ uv pip install -e .
 
 ## Running the dashboard
 ```bash
-uv run python web/app.py
+uv run web/app.py
 ```
 The Dash server will start (by default at http://127.0.0.1:8050). Open in a browser to interact with the analysis steps, diagnostics, and executive summary.
 
 ## Running the CLI pipeline
 ```bash
-uv run python -m src.main
+uv run src/main.py
 ```
 Runs the ADL pipeline with rolling CV, Granger test, daily robustness check, seasonality analysis, and prints the executive summary to stdout.
 
